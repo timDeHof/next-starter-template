@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 
 import AppNavbar from "@/components/app-navbar";
 import Providers from "@/components/providers";
 
 import "./globals.css";
+import Loading from "./loading";
 
 export const metadata: Metadata = {
   title: "Next.js + Tailwind CSS + TypeScript Starter",
@@ -27,7 +29,7 @@ export default function RootLayout({
         <Providers>
           <AppNavbar />
           <main className="flex-grow overflow-auto bg-[url(/bg-light.svg)] bg-cover dark:bg-[url(/bg-dark.svg)]">
-            {children}
+            <Suspense fallback={<Loading />}>{children}</Suspense>
           </main>
         </Providers>
       </body>

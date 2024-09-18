@@ -1,8 +1,8 @@
-import { Dispatch, SetStateAction, useMemo } from 'react';
+import { Dispatch, SetStateAction, useMemo } from "react";
 
-import { useTheme } from 'next-themes';
+import { useTheme } from "next-themes";
 
-type Theme = 'dark' | 'light';
+type Theme = "dark" | "light";
 type SetTheme = Dispatch<SetStateAction<Theme>>;
 
 export default function useSystemTheme() {
@@ -10,7 +10,7 @@ export default function useSystemTheme() {
 
   return useMemo(() => {
     return {
-      theme: theme === 'system' ? systemTheme : theme,
+      theme: theme === "system" ? systemTheme : theme,
       setTheme,
     } as { theme: Theme; setTheme: SetTheme };
   }, [theme, setTheme, systemTheme]);
