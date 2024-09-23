@@ -16,6 +16,7 @@ import { IconPackage } from "@tabler/icons-react";
 import { useSession } from "next-auth/react";
 
 import AuthButton from "./auth-button";
+import MobileMenu from "./mobile-menu";
 import { ThemeSwitcher } from "./theme-switcher";
 
 export default function AppNavbar() {
@@ -26,20 +27,19 @@ export default function AppNavbar() {
       label: "Home",
       href: "/",
     },
+    ...(status === "authenticated"
+      ? [
+          {
+            label: "Profile",
+            href: "/profile",
+          },
+          {
+            label: "Guestbook",
+            href: "/guestbook",
+          },
+        ]
+      : []),
   ];
-
-  if (status === "authenticated") {
-    menuItems.push(
-      {
-        label: "Profile",
-        href: "/profile",
-      },
-      {
-        label: "Guestbook",
-        href: "/guestbook",
-      }
-    );
-  }
 
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen}>
@@ -71,21 +71,7 @@ export default function AppNavbar() {
       </NavbarContent>
 
       {/* Mobile menu */}
-      <NavbarMenu>
-        <NavbarMenuItem>
-          <ThemeSwitcher showLabel />
-        </NavbarMenuItem>
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link className="w-full" href={item.href} size="lg">
-              {item.label}
-            </Link>
-          </NavbarMenuItem>
-        ))}
-        <NavbarMenuItem>
-          <AuthButton />
-        </NavbarMenuItem>
-      </NavbarMenu>
+      <MobileMenu menuItems={menuItems} />
     </Navbar>
   );
 }
