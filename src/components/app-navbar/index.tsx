@@ -71,7 +71,7 @@ export default function AppNavbar() {
       </NavbarContent>
 
       {/* Mobile menu */}
-      <MobileMenu menuItems={menuItems} />
+      <MobileMenu menuItems={menuItems} isMenuOpen={false} />
     </Navbar>
   );
 }
