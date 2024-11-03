@@ -21,6 +21,7 @@ A basic Next.js starter.
     - [@trivago/prettier-plugin-sort-imports](https://www.npmjs.com/package/@trivago/prettier-plugin-sort-imports)
     - [prettier-plugin-tailwindcss](https://www.npmjs.com/package/prettier-plugin-tailwindcss)
       - [Automatic Class Sorting](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier#how-classes-are-sorted)
+  - [Biome](https://biomejs.dev/guides/getting-started/)
 - Environment Variables
   - [dotenv](https://www.npmjs.com/package/dotenv)
   - [dotenv-expand](https://www.npmjs.com/package/dotenv-expand)
