@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction, useMemo } from "react";
 
 import { useTheme } from "next-themes";
 
-type Theme = "dark" | "light";
+type Theme = "dark" | "light"| "system";
 type SetTheme = Dispatch<SetStateAction<Theme>>;
 
 export default function useSystemTheme() {
